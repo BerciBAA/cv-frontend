@@ -1,0 +1,24 @@
+<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full">
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="h-full flex flex-col gap-5">
+
+    <app-input label="Cím:" placeholder="asdasdasd"></app-input>
+
+    <div
+      class="flex-1 min-h-0 flex flex-col rounded-xl border border-slate-300 shadow-sm"
+      [ngClass]="baseClasses()">
+
+      <quill-editor
+        formControlName="html"
+        [modules]="modules"
+        [format]="'html'"
+        placeholder="Type here…">
+      </quill-editor>
+    </div>
+
+    <div class="mb-3 flex items-center justify-end gap-3">
+      <app-button (click)="onCancel()">Mégse</app-button>
+      <app-button type="submit">Mentés</app-button>
+    </div>
+
+  </form>
+</section>

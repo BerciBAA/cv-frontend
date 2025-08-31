@@ -1,0 +1,17 @@
+<div
+  role="group"
+  class="inline-flex items-center divide-x divide-gray-200 overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm"
+>
+  @for (lang of languages; track lang) {
+    <button
+      type="button"
+      (click)="changeLang(lang)"
+      [class.bg-indigo-600]="lang === selectedLang"
+      [class.text-white]="lang === selectedLang"
+      [class.text-gray-600]="lang !== selectedLang"
+      class="px-4 py-2 text-sm font-medium transition-colors  focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+    >
+      {{ lang.toUpperCase() }}
+    </button>
+  }
+</div>

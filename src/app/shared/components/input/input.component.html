@@ -1,0 +1,11 @@
+<div class="w-full">
+  <label for="custom-input" class="block mb-1 text-base text-lg pointer-events-none"
+                           [class]="labelClasses()"> {{ label }}
+  </label>
+  <input id="custom-input" type="text"
+           [value]="value"
+           [placeholder]="placeholder"
+           (input)="onInput($any($event.target).value)"
+           [class]="inputClasses()"
+           class="w-full px-4 py-2 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition"/>
+</div>

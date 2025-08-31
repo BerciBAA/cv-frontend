@@ -1,0 +1,105 @@
+<header class="shadow-md sticky top-0 z-50" [ngClass]="baseClasses()">
+  <nav class="flex justify-between items-center max-w-[1200px] mx-auto px-6 py-4">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <span class="text-xl font-semibold" [routerLink]="['']">Portfolió</span>
+    </div>
+    <ul class="hidden md:flex items-center gap-4">
+      <li>
+        <a
+          routerLink="/HR"
+          class="inline-flex items-center justify-center
+             w-28 h-10
+             rounded-md font-medium
+             bg-transparent
+             hover:bg-indigo-100 hover:text-indigo-600
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
+             transition-colors"
+        >
+          {{ 'header.hr' | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="inline-flex items-center justify-center
+             w-28 h-10
+             rounded-md font-medium
+             bg-transparent
+             hover:bg-indigo-100 hover:text-indigo-600
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
+             transition-colors"
+        >
+          {{ 'header.developer' | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="inline-flex items-center justify-center
+             w-28 h-10
+             rounded-md font-medium
+             bg-transparent
+             hover:bg-indigo-100 hover:text-indigo-600
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
+             transition-colors"
+        >
+          {{ 'header.projects' | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="inline-flex items-center justify-center
+             w-28 h-10
+             rounded-md font-medium
+             bg-transparent
+             hover:bg-indigo-100 hover:text-indigo-600
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500
+             transition-colors"
+        >
+          {{ 'header.contact' | translate }}
+        </a>
+      </li>
+    </ul>
+
+
+    <div class="flex items-center gap-4">
+      <app-language-switcher></app-language-switcher>
+      @if (toggleThemeMode){
+        <app-button (click)="themeMode()" class="hidden w-50 h-10 md:inline-block" >dark</app-button>
+
+      }@else{
+        <app-button (click)="themeMode()" class="hidden w-50 h-10 md:inline-block" >light</app-button>
+
+      }
+      @if(!isAuthenticated){
+        <app-button (click)="login()" class="hidden w-50 h-10 md:inline-block">{{ 'header.btn.login' | translate}}</app-button>
+      } @else {
+        <app-button (click)="logout()" class="hidden w-40 h-10 md:inline-block">{{ 'header.btn.logout' | translate}}</app-button>
+      }
+      <div class="md:hidden cursor-pointer" (click)="toggle()">
+        <img class="w-7 h-7" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="Menu">
+      </div>
+    </div>
+  </nav>
+  @if (toggleMenu){
+    <div
+      class="md:hidden flex flex-col bg-white w-full absolute shadow-md transition-all duration-300 ease-in-out origin-top px-6 py-4 z-40">
+      <ul class="flex flex-col gap-6 text-gray-700 text-lg font-medium">
+        <li><a class="hover:text-indigo-600 transition-colors" [routerLink]="['/hr']">{{ 'header.hr' | translate }}</a></li>
+        <li><a class="hover:text-indigo-600 transition-colors" href="#">{{ 'header.developer' | translate }}</a></li>
+        <li><a class="hover:text-indigo-600 transition-colors" href="#">{{ 'header.projects' | translate }}</a></li>
+        <li><a class="hover:text-indigo-600 transition-colors" href="#">{{ 'header.contact' | translate }}</a></li>
+        @if(!isAuthenticated){
+          <div>
+            <app-button (click)="login()" class="w-full">{{ 'header.btn.login' | translate}}</app-button>
+          </div>
+        } @else {
+          <app-button (click)="logout()" class="w-full">{{ 'header.btn.logout' | translate}}</app-button>
+        }
+      </ul>
+    </div>
+  }
+
+</header>

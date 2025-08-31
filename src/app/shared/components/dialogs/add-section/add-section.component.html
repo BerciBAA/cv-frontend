@@ -1,0 +1,72 @@
+<header
+  class="sticky top-0 z-10 flex items-center justify-between backdrop-blur ml-2 mr-3 mt-4 px-3 sm:px-4"
+  [class]="baseClasses()"
+>
+  <h5 class="text-xl sm:text-2xl font-semibold">{{ 'addSectionCard.title.selectComponent' | translate }}</h5>
+
+  <button
+    type="button"
+    (click)="close()"
+    class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2"
+    [class]="closeButtonBaseClasses()"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" class="w-7 h-7 sm:w-8 sm:h-8">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </button>
+</header>
+
+@if (!isSelected()){
+  <main
+    class="content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[14rem] sm:auto-rows-[15rem] gap-4 sm:gap-5 lg:gap-6 p-3 sm:p-4 min-h-0 overflow-auto overscroll-y-contain"
+    [class]="baseClasses().join(' ')"
+  >
+    <app-add-section-card
+      title="{{ 'addSectionCard.title.UniqueText' | translate }}"
+      (click)="select(State.EDITOR)"
+      description="{{ 'addSectionCard.description.UniqueText' | translate }}"
+    />
+    <app-add-section-card
+      title="{{ 'addSectionCard.title.pdfDocument' | translate }}"
+      (click)="select(State.PDF)"
+      description="{{ 'addSectionCard.description.pdfDocument' | translate }}"
+    />
+    <app-add-section-card
+      title="{{ 'addSectionCard.title.Skills' | translate }}"
+      (click)="select(State.SKILLS)"
+      description="{{ 'addSectionCard.description.Skills' | translate }}"
+    />
+    <app-add-section-card
+      class="h-full"
+      title="{{ 'addSectionCard.title.career' | translate }}"
+      (click)="select(State.CAREER)"
+      description="{{ 'addSectionCard.description.career' | translate }}"
+    />
+    <app-add-section-card
+      title="{{ 'addSectionCard.title.projects' | translate }}"
+      (click)="select(State.PROJECTS)"
+      description="{{ 'addSectionCard.description.projects' | translate }}"
+    />
+    <app-add-section-card
+      title="{{ 'addSectionCard.title.codeSnippet' | translate }}"
+      (click)="select(State.CODE)"
+      description="{{ 'addSectionCard.description.codeSnippet' | translate }}"
+    />
+  </main>
+} @else {
+  <main class="flex-1 min-h-0" [class]="baseClasses().join(' ')">
+    @if (activeKind() === State.EDITOR){
+      <app-html-editor class="h-full" (cancel)="cancelEditor()" />
+    } @else if (activeKind() === State.SKILLS){
+      <app-skills class="h-full" (cancel)="cancelEditor()" />
+    } @else if (activeKind() === State.CAREER){
+      <app-career-highlight class="h-full" (cancel)="cancelEditor()" />
+    } @else if (activeKind() === State.PDF){
+      <app-pdf class="h-full" (cancel)="cancelEditor()" />
+    } @else if (activeKind() === State.CODE){
+      <app-code class="h-full" (cancel)="cancelEditor()" />
+    } @else if (activeKind() === State.PROJECTS){
+      <app-projects class="h-full" (cancel)="cancelEditor()" />
+    }
+  </main>
+}

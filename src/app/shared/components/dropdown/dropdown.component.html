@@ -1,0 +1,27 @@
+<div class="w-full">
+  <label [for]="id" class="pointer-events-none" [class]="labelClasses()">
+    {{ label }}
+  </label>
+
+  <div class="relative">
+    <select
+      [id]="id"
+      [value]="value()"
+      (change)="onChange($any($event.target).value)"
+      [ngClass]="selectClasses()"
+      class="p-3"
+    >
+      <option *ngIf="placeholder" value="" disabled selected hidden>{{ placeholder }}</option>
+      <option
+        *ngFor="let opt of options"
+        [value]="opt.value"
+        [disabled]="opt.disabled"
+      >
+        {{ opt.label }}
+      </option>
+    </select>
+
+    <mat-icon class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+    </mat-icon>
+  </div>
+</div>

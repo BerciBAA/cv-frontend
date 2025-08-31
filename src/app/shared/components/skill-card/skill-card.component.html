@@ -1,0 +1,23 @@
+<div
+  class="group px-4 pt-3 pb-4 rounded-2xl shadow hover:shadow-xl transition-shadow duration-300 flex flex-col relative" [ngClass]="baseClasses()">
+
+  <div class="flex items-center justify-between gap-3">
+    <h2 class="min-w-0 text-lg sm:text-xl font-semibold tracking-tight truncate" [title]="name">
+      {{ name }}
+    </h2>
+
+    <app-button>
+      edit
+    </app-button>
+  </div>
+  <span class="text-sm font-medium">
+          {{ proficiency }}%
+        </span>
+
+  <div class="w-full rounded-full h-2.5 overflow-hidden mt-3">
+    <div
+      class="h-full rounded-full transition-all duration-500 bg-blue-500"
+      [style.width.%]="proficiency">
+    </div>
+  </div>
+</div>

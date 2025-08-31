@@ -1,0 +1,33 @@
+{
+  "header": {
+    "hr": "HR",
+    "developer": "Fejlesztőknek",
+    "projects": "Projektek",
+    "contact": "Kapcsolat",
+    "btn": {
+      "login": "Bejelentkezés",
+      "logout": "Kijelentkezés",
+      "register": "Regisztráció"
+    }
+  },
+  "addSectionCard": {
+  "title": {
+    "selectComponent": "Válassz komponenst",
+    "UniqueText": "Egyedi szöveg",
+    "pdfDocument": "PDF / Dokumentum",
+    "Skills": "Készségek",
+    "career": "Végzettség",
+    "projects": "Projektek",
+    "codeSnippet": "Kódrészlet"
+  },
+  "description": {
+    "UniqueText": "Szabadon formázható szöveges blokk rövid bekezdésekhez.",
+    "pdfDocument": "PDF megjelenítése beágyazva, lapozással és letöltési opcióval.",
+    "Skills": "Fő készségek és eszközök felsorolása — opcionális szintjelzéssel.",
+    "career": "Iskolák, szakok, évszámok és megszerzett oklevelek röviden.",
+    "projects": "Főbb projektek rövid leírással, technológiákkal és hivatkozásokkal.",
+    "codeSnippet": "Kiemelt szintaxisú kódrészlet"
+  }
+}
+
+}

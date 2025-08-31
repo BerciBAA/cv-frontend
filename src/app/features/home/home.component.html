@@ -1,0 +1,340 @@
+<main class="container mx-auto px-1 py-5 space-y-6">
+
+  <header class="text-center md:text-left md:flex md:items-center md:justify-between">
+    <div>
+      <h1 class="text-5xl font-extrabold">Kiss János</h1>
+      <p class="text-xl text-gray-600 mt-2">Frontend Fejlesztő</p>
+    </div>
+    <ul class="flex justify-center md:justify-start gap-6 mt-6 md:mt-0">
+      <li><a href="mailto:kiss.janos@example.com" class="text-gray-600 hover:text-indigo-600 transition">✉️ Email</a></li>
+      <li><a href="tel:+3612345678" class="text-gray-600 hover:text-indigo-600 transition">📞 +36 1 234 5678</a></li>
+      <li><a href="https://github.com/kissjanos" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">🐙 GitHub</a></li>
+      <li><a href="https://linkedin.com/in/kissjanos" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">🔗 LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <section class="relative bg-gray-200 p-6 rounded-lg shadow-md space-y-8">
+    <h4 class="text-4xl font-bold mb-4">Rólam</h4>
+
+    <button
+      *kaHasRoles="['admin']"
+      class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+      aria-label="Edit">
+      Edit
+    </button>
+
+    <section class="relative bg-white p-6 rounded-lg shadow-md">
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-3 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Edit">
+        Edit
+      </button>
+      <h2 class="text-2xl font-bold mb-2">Színséma beállítások</h2>
+      <p class="text-gray-600">
+        Szenvedélyes Frontend Fejlesztő vagyok, aki modern és reszponzív webes élményeket alkot Angular és React keretrendszerekben. Kiemelten
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+        érdekel a felhasználói élmény és az akadálymentesség.
+      </p>
+    </section>
+
+    <section class="flex items-center justify-center" *kaHasRoles="['admin']" >
+
+      <button
+        class="shadow-xl/30 md:inline-block bg-indigo-600 !text-white w-full py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Hozzáadás">
+        Hozzáadás
+      </button>
+    </section>
+  </section>
+
+
+  <!-- src/app/header/header.component.html -->
+  <section class="relative bg-gray-200 p-6 rounded-lg shadow-md space-y-8">
+    <h4 class="text-4xl font-bold mb-4">Technológiák &amp; Készségek</h4>
+
+    <button
+      *kaHasRoles="['admin']"
+      class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+      aria-label="Edit">
+      Edit
+    </button>
+
+    <section class="relative bg-white rounded-lg shadow p-8">
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-3 bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Szerkesztés">
+        Szerkesztés
+      </button>
+
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ng-container *ngFor="let tech of technologies">
+          <div
+            class="group bg-gradient-to-b from-white to-gray-50 p-6 rounded-2xl shadow hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                {{ tech.name }}
+              </h3>
+              <span class="text-sm font-medium text-gray-500 group-hover:text-gray-700 transition-colors">
+            {{ tech.proficiency }}%
+          </span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+              <div
+                class="h-full rounded-full transition-all duration-500 bg-blue-500"
+                [style.width.%]="tech.proficiency">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+
+    <section class="flex items-center justify-center" *kaHasRoles="['admin']">
+      <button
+        class="shadow-xl/30 bg-indigo-600 text-white w-full py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Hozzáadás">
+        Hozzáadás
+      </button>
+    </section>
+  </section>
+
+
+  <section class="relative bg-gray-200 p-6 rounded-lg shadow-md space-y-8">
+    <h4 class="text-4xl font-bold mb-4">Szakmai Tapasztalat</h4>
+    <button
+      *kaHasRoles="['admin']"
+      class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+      aria-label="Edit">
+      Edit
+    </button>
+    <section class="relative bg-white rounded-lg shadow p-8">
+      <!-- Edit gomb -->
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Edit">
+        Edit
+      </button>
+      <!-- Grid: bal auto, jobb 1fr -->
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] md:gap-x-8">
+        <!-- Bal oszlop: cím, cég, időszak -->
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-medium mb-1">Senior Frontend Fejlesztő</h3>
+          <p class="text-indigo-600 mb-1">TechCorp Kft.</p>
+          <p class="text-gray-500">2021 – jelen</p>
+        </div>
+
+        <!-- Jobb oszlop: hosszabb szöveg is -->
+        <div class="text-gray-700 leading-relaxed break-words">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          vehicula, orci at tincidunt consectetur, metus felis tristique odio,
+          at pretium nulla lacus vitae nibh. Cras non nulla at lectus
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          scelerisque venenatis. Vivamus euismod, quam ut vestibulum
+          vestibulum, justo eros finibus risus, eget consequat nunc mi nec
+          purus. Sed sit amet purus eget sapien feugiat luctus. Nunc lacinia
+          dolor in tincidunt tincidunt. Integer nec ipsum eu mi sodales
+          tristique vitae quis metus. Maecenas sed orci vel ligula lobortis
+          pellentesque non nec sapien. Aenean imperdiet sem vitae dui
+          fringilla, ac feugiat purus dictum. Donec tincidunt mi vitae purus
+          vulputate, a dignissim libero venenatis.
+        </div>
+      </div>
+    </section>
+
+
+    <section class="relative bg-white rounded-lg shadow p-8">
+      <!-- Edit gomb -->
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Edit">
+        Edit
+      </button>
+      <!-- Grid: bal auto, jobb 1fr -->
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] md:gap-x-8">
+        <!-- Bal oszlop: cím, cég, időszak -->
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-medium mb-1">Senior Frontend Fejlesztő</h3>
+          <p class="text-indigo-600 mb-1">TechCorp Kft.</p>
+          <p class="text-gray-500">2021 – jelen</p>
+        </div>
+
+        <!-- Jobb oszlop: hosszabb szöveg is -->
+        <div class="text-gray-700 leading-relaxed break-words">
+        </div>
+      </div>
+    </section>
+
+    <section class="flex items-center justify-center" *kaHasRoles="['admin']">
+      <button
+        class="shadow-xl/30 bg-indigo-600 text-white w-full py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Hozzáadás">
+        Hozzáadás
+      </button>
+    </section>
+  </section>
+
+  <section class="relative bg-gray-200 p-6 rounded-lg shadow-md space-y-8">
+    <button
+      *kaHasRoles="['admin']"
+      class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+      aria-label="Edit">
+      Edit
+    </button>
+    <h4 class="text-4xl font-bold mb-4">Végzetség</h4>
+
+    <section class="relative bg-white rounded-lg shadow p-8">
+      <!-- Edit gomb -->
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Edit">
+        Edit
+      </button>
+      <!-- Grid: bal auto, jobb 1fr -->
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] md:gap-x-8">
+        <!-- Bal oszlop: cím, cég, időszak -->
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-medium mb-1">Programtervező informatikus</h3>
+          <p class="text-indigo-600 mb-1">Debreceni egyetem</p>
+          <p class="text-gray-500">2021 – jelen</p>
+        </div>
+
+        <!-- Jobb oszlop: hosszabb szöveg is -->
+        <div class="text-gray-700 leading-relaxed break-words">
+        </div>
+      </div>
+    </section>
+
+
+    <section class="flex items-center justify-center" *kaHasRoles="['admin']">
+      <button
+        class="shadow-xl/30 bg-indigo-600 text-white w-full py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Hozzáadás">
+        Hozzáadás
+      </button>
+    </section>
+  </section>
+
+  <section class="relative bg-gray-200 p-6 rounded-lg shadow-md space-y-8">
+    <button
+      *kaHasRoles="['admin']"
+      class="absolute w-40 h-10 shadow-xl/30 -top-3 -right-5 md:inline-block bg-indigo-600 !text-white px-5 py-2 rounded-md hover:bg-indigo-500 transition"
+      aria-label="Edit">
+      Edit
+    </button>
+    <h4 class="text-4xl font-bold mb-4">PDF</h4>
+
+    <section class="relative bg-white rounded-lg shadow p-8">
+      <!-- Edit gomb -->
+      <button
+        *kaHasRoles="['admin']"
+        class="absolute top-[-0.75rem] right-4 bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-500 transition"
+        aria-label="Edit">
+        Edit
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] md:gap-x-8">
+        <!-- Bal oldalon a cím/leírás -->
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-medium mb-1">Tanulmányi anyag</h3>
+          <p class="text-gray-700">
+            Itt meg tudod nézni a letölthető PDF-et.dd
+          </p>
+        </div>
+
+        <!-- Jobb oldalon a PDF nézegető -->
+        <div class="w-full aspect-[210/265]">
+          <iframe
+            src=""
+            class="w-full h-full rounded-lg shadow border"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="flex items-center justify-center" *kaHasRoles="['admin']">
+      <button
+        class="shadow-xl/30 bg-indigo-600 text-white w-full py-2 rounded-md hover:bg-indigo-500 transition"
+        aria-label="Hozzáadás">
+        Hozzáadás
+      </button>
+    </section>
+  </section>
+
+  <section class="relative bg-gray-100 p-6 rounded-lg shadow-md space-y-8">
+    <h4 class="text-4xl font-bold">Projektek</h4>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <ng-container *ngFor="let project of projects">
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
+          <!-- Projekt kép -->
+          <img
+            [src]="project.imageUrl"
+            alt="{{ project.title }}"
+            class="w-full h-40 object-cover rounded-md mb-4"
+          />
+
+          <!-- Cím és leírás -->
+          <h5 class="text-xl font-semibold text-gray-800 mb-2">
+            {{ project.title }}
+          </h5>
+          <p class="text-gray-600 flex-1">
+            {{ project.description }}
+          </p>
+
+          <!-- GitHub link -->
+          <a
+            [href]="project.repoUrl"
+            target="_blank"
+            class="mt-4 inline-block bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded hover:bg-indigo-500 transition-self"
+            aria-label="GitHub repository"
+          >
+            Projekt link
+          </a>
+          <a
+            [href]="project.repoUrl"
+            target="_blank"
+            class="mt-4 inline-block bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded hover:bg-indigo-500 transition-self"
+            aria-label="GitHub repository"
+          >
+            GitHub
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+  <section  class="relative bg-gray-100 p-6 rounded-lg shadow-md space-y-8">
+    <h4 class="text-4xl font-bold">Typescript code: </h4>
+  <pre><code  class="rounded-lg" [highlight]="code" language="java" lineNumbers></code></pre>
+  </section>
+
+</main>

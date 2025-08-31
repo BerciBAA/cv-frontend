@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import 'highlight.js/styles/mono-blue.css';
+@import 'quill/dist/quill.snow.css';
+@import 'quill/dist/quill.bubble.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-calendar.tw-date-panel .mat-calendar-body-cell-content {
+  border-radius: 10px;
+  transition: box-shadow .15s ease, background-color .15s ease, color .15s ease;
+}
+.mat-calendar.tw-date-panel
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
+.mat-calendar-body-cell-content {
+  box-shadow: 0 0 0 2px rgba(59,130,246,.35);
+}
+.mat-calendar.tw-date-panel .mat-calendar-body-label { display: none; }
+
+.mat-calendar.tw-light.tw-date-panel .mat-calendar-body-selected .mat-calendar-body-cell-content {
+  background: #3b82f6; color: #fff;
+}
+.mat-calendar.tw-dark.tw-date-panel .mat-calendar-body-selected .mat-calendar-body-cell-content {
+  background: #60a5fa; color: #0f172a;
+}
+
+
+.cdk-overlay-pane:has(.mat-calendar.tw-light.tw-date-panel) .mat-datepicker-content,
+.mat-datepicker-content:has(.mat-calendar.tw-light.tw-date-panel) {
+  border-radius: 16px; padding: 8px;
+  background: #fff; color: #0f172a;
+  border: 1px solid rgba(148,163,184,.35);
+  box-shadow: 0 20px 45px rgba(2,6,23,.2);
+}
+.cdk-overlay-pane:has(.mat-calendar.tw-dark.tw-date-panel) .mat-datepicker-content,
+.mat-datepicker-content:has(.mat-calendar.tw-dark.tw-date-panel) {
+  border-radius: 16px; padding: 8px;
+  background: #0f172a; color: #e2e8f0;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 45px rgba(2,6,23,.5);
+}
+
+.cdk-overlay-pane.tw-date-panel .mat-datepicker-content,
+.mat-datepicker-content.tw-date-panel {
+  border-radius: 16px; padding: 8px;
+  background: #fff; color: #0f172a;
+  border: 1px solid rgba(148,163,184,.35);
+  box-shadow: 0 20px 45px rgba(2,6,23,.2);
+}
+.cdk-overlay-pane.tw-date-panel.tw-dark .mat-datepicker-content,
+.mat-datepicker-content.tw-date-panel.tw-dark {
+  background: #0f172a; color: #e2e8f0; border-color: #334155;
+  box-shadow: 0 20px 45px rgba(2,6,23,.5);
+}
+

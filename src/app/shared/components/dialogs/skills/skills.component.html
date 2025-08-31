@@ -1,0 +1,38 @@
+<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 space-y-5 h-full flex flex-col justify-between">
+  <div *ngIf="!editing" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-0 overflow-auto overscroll-y-contain px-3 mt-3 ">
+    <ng-container *ngFor="let tech of technologies;">
+      <app-skill-card  [name]="tech.name" [proficiency]="tech.proficiency"></app-skill-card>
+
+    </ng-container>
+
+  </div>
+
+  <section *ngIf="editing" >
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-5 justify-between m-4">
+      <app-input
+        label="Technológia neve:"
+        placeholder="Pl. Angular, Java">
+      </app-input>
+      <app-input
+        label="Proficiency (%)"
+        type="number"
+        placeholder="0 - 100">
+      </app-input>
+    </form>
+  </section>
+
+  <section>
+    <section class="flex items-center justify-center mx-4" *ngIf="!editing && isAdmin">
+      <app-button (click)="onAdd()" class="w-full">
+        ➕ Hozzáadás
+      </app-button>
+    </section>
+
+    <section class="my-3 flex items-center justify-end gap-3 m-4">
+      <app-button (click)="onCancel()" *ngIf="editing">Mégse</app-button>
+      <app-button (click)="onBack()"  *ngIf="!editing">Mégse</app-button>
+      <app-button type="submit">Mentés</app-button>
+    </section>
+  </section>
+
+</section>

@@ -1,0 +1,13 @@
+<div class="w-full h-full flex flex-col">
+  <label class="block mb-1 text-base text-lg pointer-events-none"
+         [class]="labelClasses()"> {{ label }}
+  </label>
+  <textarea type="text"
+         [value]="value"
+         [placeholder]="placeholder"
+         (input)="onInput($any($event.target).value)"
+         [class]="inputClasses()"
+         class="w-full h-full resize-none border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-black">
+
+  </textarea>
+</div>

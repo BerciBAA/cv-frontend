@@ -1,0 +1,32 @@
+{
+  "header": {
+    "hr": "HR",
+    "developer": "Developer",
+    "projects": "Projects",
+    "contact": "Contact",
+    "btn": {
+      "login": "Sign in",
+      "logout": "Sign out",
+      "register": "Sign up"
+    }
+  },
+  "addSectionCard": {
+    "title": {
+      "selectComponent": "Select Component",
+      "UniqueText": "Unique text",
+      "pdfDocument": "PDF / Document",
+      "Skills": "Skills",
+      "career": "Career",
+      "projects": "Projects",
+      "codeSnippet": "Code snippet"
+    },
+    "description": {
+      "UniqueText": "Freely formattable text block for short paragraphs.",
+      "pdfDocument": "PDF display embedded, with page turning and download option.",
+      "Skills": "List of key skills and tools — with level indicators",
+      "career": "Schools, majors, years, and degrees obtained in brief.",
+      "projects": "Brief descriptions of major projects, technologies, and references.",
+      "codeSnippet": "Code snippet"
+    }
+  }
+}
