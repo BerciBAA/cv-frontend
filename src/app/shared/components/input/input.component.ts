@@ -1,13 +1,17 @@
 import { Component, forwardRef, Input, computed, inject } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { ThemeService } from '../../../core/services/theme/theme.service'
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-input',
   standalone: true,
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputComponent), multi: true }]
+  imports: [
+    TranslatePipe
+  ],
+  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputComponent), multi: true}]
 })
 export class InputComponent implements ControlValueAccessor {
   private themeService = inject(ThemeService)

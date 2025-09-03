@@ -6,7 +6,7 @@
       type="checkbox"
       [checked]="checked"
       [disabled]="disabled"
-      (change)="onToggle($any($event.target).checked)"
+      (input)="onChange($any($event.target).checked)"
       (blur)="onBlur()"
       class="h-5 w-5 rounded border border-slate-300 focus:outline-none focus:ring-1 focus:ring-black transition"
       [class]="checkboxClasses()"

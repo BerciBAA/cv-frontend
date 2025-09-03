@@ -1,34 +1,34 @@
 <section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full flex-col justify-between">
-  <form  [formGroup]="form" class="h-full flex flex-col gap-5">
+  <form  [formGroup]="form" (ngSubmit)="onSave()" class="h-full flex flex-col gap-5">
     <section class="flex-1 min-h-0 flex flex-col space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <app-input label="Név / Pozíció" placeholder="Pl. Senior Frontend fejlesztő" formControlName="title"></app-input>
-        <app-input label="Cég" placeholder="Pl. TechCorp Kft." formControlName="companyName"></app-input>
-        <app-checkbox label="Jelenlegi pozíció" formControlName="current" class="md:mt-10" (checkBoxChanged)="changeCheckBox()"> </app-checkbox>
+        <app-input label="{{ 'careerHighlight.label.name' | translate }}" placeholder="{{ 'careerHighlight.placeholder.exampleName' | translate }}" formControlName="title"></app-input>
+        <app-input label="{{ 'careerHighlight.label.company' | translate }}" placeholder="{{ 'careerHighlight.placeholder.exampleCompany' | translate }}" formControlName="company"></app-input>
+        <app-checkbox label="{{ 'careerHighlight.label.currentPosition' | translate }}" formControlName="current" class="md:mt-10"> </app-checkbox>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-        <app-date-picker class="self-center" label="Kezdete:" placeholder="yyyy-mm-dd" formControlName="startDate"></app-date-picker>
+        <app-date-picker class="self-center" label="{{ 'careerHighlight.label.start' | translate }}" placeholder="{{ 'global.date.format' | translate }}" formControlName="start"></app-date-picker>
         @if(form.value.current){
-          <app-date-picker class="self-center" label="Vége:"  placeholder="Jelenlegi" [disabled]="true" formControlName="endDate"></app-date-picker>
+          <app-date-picker class="self-center" label="{{ 'careerHighlight.label.end' | translate }}"  [placeholder]="form.value.current ? ('global.date.current' | translate)  : ('global.date.format' | translate)" [disabled]="true" formControlName="end"></app-date-picker>
         } @else{
-          <app-date-picker class="self-center" label="Vége:"  placeholder="yyyy-mm-dd"   formControlName="endDate"></app-date-picker>
+          <app-date-picker class="self-center" label="{{ 'careerHighlight.label.end' | translate }}"  placeholder="{{ 'global.date.format' | translate }}"   formControlName="end"></app-date-picker>
         }
       </div>
 
       <div class="flex-1 min-h-0 h-full">
         <app-textarea
           formControlName="description"
-          label="Leírás"
-          placeholder="Feladatok, eredmények…"
+          label="{{ 'careerHighlight.label.description' | translate }}"
+          placeholder="{{ 'careerHighlight.placeholder.exampleDescription' | translate }}"
           class="h-full min-h-0">
         </app-textarea>
       </div>
     </section>
 
     <div class="mb-3 flex items-center justify-end gap-3">
-      <app-button (click)="onCancel()">Mégse</app-button>
-      <app-button type="submit">Mentés</app-button>
+      <app-button (click)="onCancel()">{{ 'global.button.cancel' | translate }}</app-button>
+      <app-button type="submit">{{ 'global.button.save' | translate }}</app-button>
     </div>
   </form>
 </section>

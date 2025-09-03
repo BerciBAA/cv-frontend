@@ -10,24 +10,48 @@
       "register": "Regisztráció"
     }
   },
-  "addSectionCard": {
-  "title": {
-    "selectComponent": "Válassz komponenst",
-    "UniqueText": "Egyedi szöveg",
-    "pdfDocument": "PDF / Dokumentum",
-    "Skills": "Készségek",
-    "career": "Végzettség",
-    "projects": "Projektek",
-    "codeSnippet": "Kódrészlet"
+  "global": {
+    "button": {
+      "cancel": "Mégse",
+      "save": "Mentés"
+    },
+    "date": {
+      "format": "yyyy-mm-dd",
+      "current": "Jelenlegi"
+    }
   },
-  "description": {
-    "UniqueText": "Szabadon formázható szöveges blokk rövid bekezdésekhez.",
-    "pdfDocument": "PDF megjelenítése beágyazva, lapozással és letöltési opcióval.",
-    "Skills": "Fő készségek és eszközök felsorolása — opcionális szintjelzéssel.",
-    "career": "Iskolák, szakok, évszámok és megszerzett oklevelek röviden.",
-    "projects": "Főbb projektek rövid leírással, technológiákkal és hivatkozásokkal.",
-    "codeSnippet": "Kiemelt szintaxisú kódrészlet"
+  "addSectionCard": {
+    "title": {
+      "selectComponent": "Válassz komponenst",
+      "uniqueText": "Egyedi szöveg",
+      "pdfDocument": "PDF / Dokumentum",
+      "Skills": "Készségek",
+      "career": "Végzettség",
+      "projects": "Projektek",
+      "codeSnippet": "Kódrészlet"
+    },
+    "description": {
+      "uniqueText": "Szabadon formázható szöveges blokk rövid bekezdésekhez.",
+      "pdfDocument": "PDF megjelenítése beágyazva, lapozással és letöltési opcióval.",
+      "Skills": "Fő készségek és eszközök felsorolása — opcionális szintjelzéssel.",
+      "career": "Iskolák, szakok, évszámok és megszerzett oklevelek röviden.",
+      "projects": "Főbb projektek rövid leírással, technológiákkal és hivatkozásokkal.",
+      "codeSnippet": "Kiemelt szintaxisú kódrészlet"
+    }
+  },
+  "careerHighlight": {
+    "label": {
+      "name": "Név / Pozíció",
+      "company": "Cég",
+      "currentPosition": "Jelenlegi pozíció",
+      "description": "Leírás",
+      "start": "Kezdete",
+      "end": "Vége"
+    },
+    "placeholder": {
+      "exampleName": "Pl. Senior Frontend fejlesztő",
+      "exampleCompany": "Pl. TechCorp Kft.",
+      "exampleDescription": "Feladatok, eredmények…"
+    }
   }
-}
-
 }

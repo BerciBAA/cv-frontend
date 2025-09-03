@@ -10,10 +10,20 @@
       "register": "Sign up"
     }
   },
+  "global": {
+    "button": {
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "date": {
+      "format": "yyyy-mm-dd",
+      "current": "Current"
+    }
+  },
   "addSectionCard": {
     "title": {
       "selectComponent": "Select Component",
-      "UniqueText": "Unique text",
+      "uniqueText": "Unique text",
       "pdfDocument": "PDF / Document",
       "Skills": "Skills",
       "career": "Career",
@@ -21,12 +31,27 @@
       "codeSnippet": "Code snippet"
     },
     "description": {
-      "UniqueText": "Freely formattable text block for short paragraphs.",
+      "uniqueText": "Freely formattable text block for short paragraphs.",
       "pdfDocument": "PDF display embedded, with page turning and download option.",
       "Skills": "List of key skills and tools — with level indicators",
       "career": "Schools, majors, years, and degrees obtained in brief.",
       "projects": "Brief descriptions of major projects, technologies, and references.",
       "codeSnippet": "Code snippet"
+    }
+  },
+  "careerHighlight": {
+    "label": {
+      "name": "Name / Position",
+      "company": "Company",
+      "currentPosition": "Current position",
+      "description": "Description",
+      "start":"Start",
+      "end": "End"
+    },
+    "placeholder": {
+      "exampleName": "E.g. TechCorp Ltd.",
+      "exampleCompany": "E.g. Senior Frontend Developer",
+      "exampleDescription": "Tasks, results..."
     }
   }
 }

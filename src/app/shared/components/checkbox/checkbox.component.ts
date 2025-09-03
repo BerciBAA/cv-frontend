@@ -16,7 +16,6 @@ export class CheckboxComponent implements ControlValueAccessor {
 
   @Input() label = '';
   @Input() inlineText = '';
-  @Output() checkBoxChanged = new EventEmitter<void>() ;
 
   checked = false;
   disabled = false;
@@ -40,7 +39,7 @@ export class CheckboxComponent implements ControlValueAccessor {
   });
 
 
-  private onChange: (v: any) => void = () => {  };
+  protected onChange: (v: any) => void = () => {  };
   private onTouched: () => void = () => {};
 
   writeValue(v: any): void { this.checked = !!v; }
@@ -48,6 +47,5 @@ export class CheckboxComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void { this.onTouched = fn; }
   setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
 
-  onToggle(v: boolean): void { this.checked = v; this.checkBoxChanged.emit(); this.onChange(v); }
   onBlur(): void { this.onTouched(); }
 }
