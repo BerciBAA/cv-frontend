@@ -1,6 +1,6 @@
 import {Component, computed, HostBinding, inject, signal} from '@angular/core';
 import {AddSectionCardComponent} from '../../add-section-card/add-section-card.component';
-import { DialogRef } from '@angular/cdk/dialog';
+import {DialogRef} from '@angular/cdk/dialog';
 import {HtmlEditorComponent} from '../html-editor/html-editor.component';
 import {ThemeService} from '../../../../core/services/theme/theme.service';
 import {NgClass} from '@angular/common';

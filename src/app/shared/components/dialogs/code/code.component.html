@@ -1,42 +1,40 @@
-<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 space-y-5 h-full flex flex-col justify-between">
+<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full flex flex-col justify-between">
   <form [formGroup]="form"
         (ngSubmit)="onSave()"
         class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0">
 
     <section class="flex-1 min-h-0 flex flex-col space-y-6">
       <app-input
-        label="Cím:"
-        placeholder="Pl. Typescript példa"
-        >
+        [label]="'code.label.title' | translate"
+        [placeholder]="'code.placeholder.exampleName' | translate"
+        formControlName="title"
+      >
       </app-input>
 
       <app-dropdown
-        [label]="'Kategória'"
-        [placeholder]="'Válassz...'"
-        [options]="[
-    { label: 'Option A', value: 'A' },
-    { label: 'Option B', value: 'B' },
-    { label: 'Disabled C', value: 'C', disabled: true }
-  ]">
+        [label]="'code.label.programmingLanguage' | translate"
+        [placeholder]="'code.placeholder.choose' | translate"
+        [options]="optionsForDropdown()"
+        formControlName="language">
       </app-dropdown>
 
-      <div class="flex-1 min-h-0 flex flex-col space-y-4">
+      <div class="flex-1 min-h-0 flex flex-col gap-6">
         <app-textarea
+          formControlName="code"
           label="Kód"
           placeholder="Írd ide a kódot…"
-          class="h-full min-h-64 font-mono">
+          class="flex-1 min-h-64 font-mono">
         </app-textarea>
-
-        <div>
-          <label class="block mb-1 text-base text-lg">Előnézet</label>
-          <pre class="rounded-lg border border-slate-200 bg-slate-50 p-3 overflow-auto max-h-96">
-            <code [highlight]="form.value.code!" [language]="form.value.language!"></code>
-          </pre>
-        </div>
+      </div>
+      <div class="flex-1 min-h-1 flex flex-col">
+        <label class="block mb-1 text-base text-lg">{{ 'code.label.Preview' | translate }}</label>
+        <pre class="m-0 !bg-white rounded-lg border border-slate-200 bg-slate-50 p-3 overflow-auto h-full "
+             [highlight]="form.value.code || ''"
+             [language]="form.value.language || ''">
+        </pre>
       </div>
     </section>
-
-    <div class="pt-4 flex items-center justify-end gap-3">
+    <div class="mb-3 flex items-center justify-end gap-3">
       <app-button type="button" (click)="onCancel()">Mégse</app-button>
       <app-button type="submit">Mentés</app-button>
     </div>

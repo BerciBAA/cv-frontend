@@ -6,17 +6,18 @@
   <div class="relative">
     <select
       [id]="id"
-      [value]="value()"
-      (change)="onChange($any($event.target).value)"
+      [disabled]="disabled"
+      [value]="value ?? ''"
       [ngClass]="selectClasses()"
       class="p-3"
+      (change)="onSelect($event)"
+      (blur)="onBlur()"
     >
-      <option *ngIf="placeholder" value="" disabled selected hidden>{{ placeholder }}</option>
-      <option
-        *ngFor="let opt of options"
-        [value]="opt.value"
-        [disabled]="opt.disabled"
-      >
+      <option *ngIf="placeholder"  [disabled]="true" [hidden]="!!value">
+        {{ placeholder }}
+      </option>
+
+      <option *ngFor="let opt of options()" [value]="opt.value" [disabled]="opt.disabled">
         {{ opt.label }}
       </option>
     </select>

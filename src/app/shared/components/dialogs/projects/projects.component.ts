@@ -93,7 +93,7 @@ export class ProjectsComponent {
   }
 
   onCancelClick() {
-
+    this.cancel.emit();
   }
 
   ngOnDestroy() { this.clearAll(); }

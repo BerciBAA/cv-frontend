@@ -1,16 +1,11 @@
-import {Component, EventEmitter, inject, Output} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Component, computed, EventEmitter, inject, input, InputSignal, output, Output} from '@angular/core';
+import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ButtonComponent} from '../../button/button.component';
 import {TextareaComponent} from '../../textarea/textarea.component';
 import {InputComponent} from '../../input/input.component';
 import {Highlight} from 'ngx-highlightjs';
-import {DropdownComponent} from '../../dropdown/dropdown.component';
-
-export type CodeSavedPayload = {
-  title: string;
-  code: string;
-  language: string;
-};
+import {DropdownComponent, DropdownOption} from '../../dropdown/dropdown.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-code',
@@ -20,34 +15,41 @@ export type CodeSavedPayload = {
     InputComponent,
     ReactiveFormsModule,
     Highlight,
-    DropdownComponent
+    DropdownComponent,
+    TranslatePipe,
+    FormsModule
   ],
   templateUrl: './code.component.html',
   standalone: true,
   styleUrl: './code.component.css'
 })
 export class CodeComponent {
+
   private fb = inject(FormBuilder);
 
-  @Output() saved = new EventEmitter<CodeSavedPayload>();
-  @Output() cancel = new EventEmitter<void>();
+  cancel = output<void>();
+  languages: InputSignal<string[]> = input<string[]>([]);
+  protected code: string = '';
+
+  optionsForDropdown = computed<DropdownOption<string>[]>(() =>
+    (this.languages() ?? []).map(l => ({
+      label: l,
+      value: l,
+      disabled: false,
+    }))
+  );
 
   form = this.fb.group({
-    title: ['', [Validators.required, Validators.maxLength(200)]],
-    language: ['typescript', [Validators.required]],
-    code: ['', [Validators.required, Validators.minLength(5)]],
+    title: ['', [Validators.required, Validators.maxLength(64)]],
+    language: ['', [Validators.required]],
+    code: ['', [Validators.required, Validators.minLength(16384)]],
   });
 
   onSave() {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
-    this.saved.emit(this.form.value as CodeSavedPayload);
+    console.log(this.form.getRawValue());
   }
 
   onCancel() {
     this.cancel.emit();
-    this.form.reset({ language: 'typescript' });
   }
 }

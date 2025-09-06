@@ -53,5 +53,16 @@
       "exampleCompany": "E.g. Senior Frontend Developer",
       "exampleDescription": "Tasks, results..."
     }
+  },
+  "code": {
+    "label": {
+      "title": "Title",
+      "programmingLanguage": "Programming language",
+      "Preview": "Preview"
+    },
+    "placeholder": {
+      "exampleName": "E.g. TechCorp Ltd.",
+      "choose": "Choose"
+    }
   }
 }

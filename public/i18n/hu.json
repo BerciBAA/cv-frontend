@@ -53,5 +53,16 @@
       "exampleCompany": "Pl. TechCorp Kft.",
       "exampleDescription": "Feladatok, eredmények…"
     }
+  },
+  "code": {
+    "label": {
+      "title": "Cím",
+      "programmingLanguage": "Programozási nyelv",
+      "Preview": "Előnézet"
+    },
+    "placeholder": {
+      "exampleName": "Pl. TechCorp Kft.",
+      "choose": "Válasz"
+    }
   }
 }

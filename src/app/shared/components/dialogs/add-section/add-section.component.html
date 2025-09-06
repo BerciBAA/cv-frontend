@@ -64,8 +64,11 @@
     } @else if (activeKind() === State.PDF){
       <app-pdf class="h-full" (cancel)="cancelEditor()" />
     } @else if (activeKind() === State.CODE){
-      <app-code class="h-full" (cancel)="cancelEditor()" />
-    } @else if (activeKind() === State.PROJECTS){
+      <app-code
+        class="h-full"
+        (cancel)="cancelEditor()"
+        [languages]="['typescript','java','html']"
+      />    } @else if (activeKind() === State.PROJECTS){
       <app-projects class="h-full" (cancel)="cancelEditor()" />
     }
   </main>
