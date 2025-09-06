@@ -74,5 +74,18 @@
       "exampleTitle": "E.g. Title",
       "typeHere": "Type here..."
     }
+  },
+  "pdf": {
+    "label": {
+      "title": "Title",
+      "description": "Description",
+      "file": "PDF file"
+    },
+    "placeholder": {
+      "exampleTitle": "E.g. Study material",
+      "exampleDescription": "Add a description for the PDF file…",
+      "chooseFile": "Choose a PDF…"
+    }
   }
+
 }

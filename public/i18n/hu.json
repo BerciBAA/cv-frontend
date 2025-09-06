@@ -74,6 +74,19 @@
       "exampleTitle": "Pl. Cím",
       "typeHere": "Írj ide..."
     }
+  },
+  "pdf": {
+    "label": {
+      "title": "Cím",
+      "description": "Leírás",
+      "file": "PDF fájl"
+    },
+    "placeholder": {
+      "exampleTitle": "Pl. Tanulmányi anyag",
+      "exampleDescription": "Adj leírást a PDF fájlhoz…",
+      "chooseFile": "Válassz PDF-et…"
+    }
   }
+
 
 }
