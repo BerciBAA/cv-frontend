@@ -35,8 +35,8 @@
       </div>
     </section>
     <div class="mb-3 flex items-center justify-end gap-3">
-      <app-button type="button" (click)="onCancel()">Mégse</app-button>
-      <app-button type="submit">Mentés</app-button>
+      <app-button (click)="onCancel()">{{ 'global.button.cancel' | translate }}</app-button>
+      <app-button type="submit">{{ 'global.button.save' | translate }}</app-button>
     </div>
   </form>
 </section>

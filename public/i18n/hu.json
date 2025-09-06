@@ -64,5 +64,16 @@
       "exampleName": "Pl. TechCorp Kft.",
       "choose": "Válasz"
     }
+  },
+  "htmlEditor": {
+    "label": {
+      "title": "Cím",
+      "editor": "Szerkesztő"
+    },
+    "placeholder": {
+      "exampleTitle": "Pl. Cím",
+      "typeHere": "Írj ide..."
+    }
   }
+
 }

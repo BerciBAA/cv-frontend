@@ -1,40 +1,35 @@
-import {Component, computed, EventEmitter, inject, Input, Output} from '@angular/core';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {Component, computed, inject, output} from '@angular/core';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ButtonComponent} from '../../button/button.component';
-import {NgClass, NgIf} from '@angular/common';
+import {NgClass} from '@angular/common';
 import {QuillEditorComponent} from 'ngx-quill';
 import {ThemeService} from '../../../../core/services/theme/theme.service';
 import {InputComponent} from '../../input/input.component';
-
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-html-editor',
   standalone: true,
-  imports: [ReactiveFormsModule, CKEditorModule, ButtonComponent, NgIf, QuillEditorComponent, InputComponent, NgClass,],
+  imports: [ReactiveFormsModule, ButtonComponent, QuillEditorComponent, InputComponent, NgClass, TranslatePipe,],
   templateUrl: './html-editor.component.html',
   styleUrl: './html-editor.component.css',
 })
 export class HtmlEditorComponent {
 
   private themeService = inject(ThemeService);
-
+  private fb = inject(FormBuilder);
   private editorTheme = this.themeService.componentTheme('editor');
 
-  @Output() cancel = new EventEmitter<void>();
-  @Input() title:string ='';
-  @Input() description:string = '';
+  cancel = output<void>();
 
-  form = new FormGroup({
-    title: new FormControl<string>('', { nonNullable: true }),
-    html:  new FormControl<string>('', { nonNullable: true })
+  form = this.fb.group({
+    title: ['', [Validators.required, Validators.maxLength(64)]],
+    text: ['', [Validators.required, Validators.maxLength(16384)]],
   });
 
   onSave() {
-    if (this.form.invalid) return;
-    const { title, html } = this.form.getRawValue();
-    console.log('Saving...', { title, html });
+    console.log(this.form.getRawValue())
   }
 
   onCancel() {
@@ -42,8 +37,7 @@ export class HtmlEditorComponent {
   }
 
   baseClasses = computed(() => {
-    const { bg, bgHover, text, textHover, border } = this.editorTheme();
-
+    const {bg, bgHover, text, textHover, border} = this.editorTheme();
     return [
       bg,
       bgHover,
@@ -59,18 +53,18 @@ export class HtmlEditorComponent {
       ['blockquote', 'code-block'],
       ['link', 'image', 'video', 'formula'],
 
-      [{ 'header': 1 }, { 'header': 2 }],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],
-      [{ 'indent': '-1'}, { 'indent': '+1' }],
-      [{ 'direction': 'rtl' }],
+      [{'header': 1}, {'header': 2}],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'list': 'check'}],
+      [{'script': 'sub'}, {'script': 'super'}],
+      [{'indent': '-1'}, {'indent': '+1'}],
+      [{'direction': 'rtl'}],
 
-      [{ 'size': ['small', false, 'large', 'huge'] }],
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{'size': ['small', false, 'large', 'huge']}],
+      [{'header': [1, 2, 3, 4, 5, 6, false]}],
 
-      [{ 'color': [] }, { 'background': [] }],
-      [{ 'font': [] }],
-      [{ 'align': [] }],
+      [{'color': []}, {'background': []}],
+      [{'font': []}],
+      [{'align': []}],
 
       ['clean']
     ],

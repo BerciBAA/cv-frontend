@@ -64,5 +64,15 @@
       "exampleName": "E.g. TechCorp Ltd.",
       "choose": "Choose"
     }
+  },
+  "htmlEditor": {
+    "label": {
+      "title": "Title",
+      "editor": "Editor"
+    },
+    "placeholder": {
+      "exampleTitle": "E.g. Title",
+      "typeHere": "Type here..."
+    }
   }
 }
