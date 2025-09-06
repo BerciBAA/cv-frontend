@@ -86,6 +86,30 @@
       "exampleDescription": "Add a description for the PDF file…",
       "chooseFile": "Choose a PDF…"
     }
+  },
+  "project": {
+    "label": {
+      "title": "Title",
+      "githubRepo": "GitHub repo",
+      "projectLink": "Project link",
+      "description": "Description",
+      "imageUpload": "Image upload"
+    },
+    "placeholder": {
+      "exampleTitle": "e.g., Portfolio site",
+      "exampleGithub": "https://github.com/...",
+      "exampleProjectLink": "https://...",
+      "exampleDescription": "Short summary..."
+    }
+  },
+  "uploader": {
+    "dropOr": "Drop images here",
+    "dropOnly": "Drop images here",
+    "choose": "Choose images",
+    "accepted": "Accepted",
+    "maxFiles": "Max files",
+    "maxSize": "Max size",
+    "error": "Error during upload"
   }
 
 }

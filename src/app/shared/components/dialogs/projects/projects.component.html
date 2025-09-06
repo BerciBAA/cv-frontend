@@ -1,79 +1,55 @@
-<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 space-y-5 h-full flex flex-col">
-  <form (ngSubmit)="onSave()" class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0">
+<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full flex flex-col justify-between">
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0">
 
     <section class="flex-1 min-h-0 flex flex-col space-y-6">
-      <app-input label="Cím" placeholder="Pl. Portfólió oldal"
-                 ></app-input>
+      <app-input
+        [label]="'project.label.title' | translate"
+        [placeholder]="'project.placeholder.exampleTitle' | translate"
+        formControlName="title">
+      </app-input>
 
-      <app-input label="GitHub repo" placeholder="https://github.com/..."
-                 ></app-input>
+      <app-input
+        [label]="'project.label.githubRepo' | translate"
+        [placeholder]="'project.placeholder.exampleGithub' | translate"
+        formControlName="githubLink">
+      </app-input>
 
-      <app-input label="Projekt link (opcionális)" placeholder="https://..."
-                 ></app-input>
+      <app-input
+        [label]="'project.label.projectLink' | translate"
+        [placeholder]="'project.placeholder.exampleProjectLink' | translate"
+        formControlName="projectLink">
+      </app-input>
 
-      <app-textarea
-        label="Leírás"
-        placeholder="Rövid összefoglaló..."
-        (input)="description.update($any($event.target).value)"
-        class="min-h-40">
-      </app-textarea>
+      <div class="flex flex-col md:flex-row gap-6 flex-1 min-h-0">
+        <div class="flex-1 flex flex-col min-h-0 min-w-0">
+          <app-textarea
+            [label]="'project.label.description' | translate"
+            [placeholder]="'project.placeholder.exampleDescription' | translate"
+            formControlName="description"
+            class="flex-1">
+          </app-textarea>
+        </div>
 
+        <div class="flex-1 flex flex-col min-h-0 min-w-0">
+          <label class="block mb-1 text-base text-lg">
+            {{ 'project.label.imageUpload' | translate }}
+          </label>
 
-      <div>
-        <label class="block mb-1 text-base text-lg">Projekt képek</label>
-
-        <div class="rounded-xl border border-dashed border-slate-300 p-4 bg-white/60"
-             (drop)="onDrop($event)" (dragover)="onDragOver($event)">
-          <div class="flex items-center justify-between gap-3">
-            <p class="text-sm text-slate-600">
-              Húzd ide a képeket vagy
-              <span class="font-medium">válaszd ki</span>
-            </p>
-            <label class="inline-block">
-              <input type="file" class="hidden" multiple accept="image/*" (change)="onFilesSelected($event)">
-              <span class="cursor-pointer bg-indigo-600 text-white text-sm px-3 py-2 rounded-md hover:bg-indigo-500 transition">
-                Fájlok kiválasztása
-              </span>
-            </label>
-          </div>
-
-          <p class="text-xs text-slate-500 mt-2">Formátumok: JPG, PNG, WEBP • Max 15 MB/kép</p>
-
-          <div *ngIf="errorMsg()" class="mt-2 text-sm text-red-600">{{ errorMsg() }}</div>
-
-          <!-- Thumbnails -->
-          <div *ngIf="previews().length > 0" class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            <div *ngFor="let p of previews(); let i = index"
-                 class="relative group rounded-lg overflow-hidden border bg-white">
-              <img [src]="p.url" alt="preview" class="w-full h-32 object-cover" />
-
-              <button type="button"
-                      class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition
-                             text-xs px-2 py-1 rounded-md border bg-white/80 hover:bg-white"
-                      (click)="removeAt(i)">
-                Törlés
-              </button>
-
-              <div class="absolute bottom-0 left-0 right-0 bg-black/40 text-white text-[10px] px-2 py-1 truncate">
-                {{ p.file.name }}
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="previews().length > 0" class="mt-3 flex justify-end">
-            <button type="button"
-                    class="text-sm px-3 py-1 rounded-md border bg-white hover:bg-slate-50"
-                    (click)="clearAll()">
-              Összes törlése
-            </button>
+          <div class="flex-1 overflow-auto">
+            <app-image-uploader
+              [accept]="'image/png,image/jpeg'"
+              [maxFiles]="8"
+              [maxSizeMB]="5"
+              (filesChange)="onFiles($event)">
+            </app-image-uploader>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="pt-4 flex items-center justify-end gap-3">
-      <app-button type="button" (click)="onCancelClick()">Mégse</app-button>
-      <app-button type="submit">Mentés</app-button>
+    <div class="mb-3 flex items-center justify-end gap-3">
+      <app-button type="button" (click)="onCancel()">{{ 'global.button.cancel' | translate }}</app-button>
+      <app-button type="submit">{{ 'global.button.save' | translate }}</app-button>
     </div>
   </form>
 </section>

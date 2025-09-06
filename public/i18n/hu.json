@@ -86,7 +86,32 @@
       "exampleDescription": "Adj leírást a PDF fájlhoz…",
       "chooseFile": "Válassz PDF-et…"
     }
+  },
+  "project": {
+    "label": {
+      "title": "Cím",
+      "githubRepo": "GitHub repo",
+      "projectLink": "Projekt link",
+      "description": "Leírás",
+      "imageUpload": "Képfeltöltés"
+    },
+    "placeholder": {
+      "exampleTitle": "Pl. Portfólió oldal",
+      "exampleGithub": "https://github.com/...",
+      "exampleProjectLink": "https://...",
+      "exampleDescription": "Rövid összefoglaló..."
+    }
+  },
+  "uploader": {
+    "dropOr": "Húzd ide a képeket",
+    "dropOnly": "Húzd ide a képeket",
+    "choose": "Képek kiválasztása",
+    "accepted": "Elfogadott",
+    "maxFiles": "Max fájl",
+    "maxSize": "Max méret",
+    "error": "Hiba a feltöltés során"
   }
+
 
 
 }

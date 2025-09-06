@@ -1,0 +1,92 @@
+<section class="h-full">
+  <div
+    class="w-full px-3 py-3 md:px-4 md:py-2 !bg-white border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition"
+    [class.border-indigo-500]="dragOver()"
+    [class.bg-indigo-50]="dragOver()"
+    [class.opacity-60]="disabled"
+    role="group"
+    aria-label="Image uploader"
+  >
+    <input
+      #fileInput
+      type="file"
+      [attr.accept]="accept"
+      multiple
+      hidden
+      [disabled]="disabled"
+      (change)="onFileInput($event)"
+    />
+
+    @if (showAddButton) {
+      <p class="m-0 mb-2 text-slate-700 text-sm md:text-base">
+        {{ 'uploader.dropOr' | translate }}
+      </p>
+
+      <app-button
+        type="button"
+        (click)="fileInput.click()"
+        class="w-full sm:w-auto"
+      >
+        {{ 'uploader.choose' | translate }}
+      </app-button>
+
+      <div class="mt-2 min-h-[1.25rem]">
+        @if (lastError(); as e) {
+          <div class="text-red-700 text-sm">
+            {{ 'uploader.error' | translate }}: {{ e }}
+          </div>
+        }
+      </div>
+
+      <div class="mt-2 text-xs text-slate-500 flex flex-wrap gap-2 sm:gap-3 justify-center">
+        <span>{{ 'uploader.accepted' | translate }}: {{ accept || 'image/*' }}</span>
+        @if (maxFiles !== Infinity) {
+          <span>• {{ 'uploader.maxFiles' | translate }}: {{ maxFiles }}</span>
+        }
+        @if (maxSizeMB !== Infinity) {
+          <span>• {{ 'uploader.maxSize' | translate }}: {{ maxSizeMB }} MB</span>
+        }
+      </div>
+    } @else {
+      <p class="m-0 text-slate-700 text-sm md:text-base">
+        {{ 'uploader.dropOnly' | translate }}
+      </p>
+    }
+  </div>
+
+  @if (images().length) {
+    <div class="mt-4 max-h-64 sm:max-h-80 pr-0.5 sm:pr-1">
+      <div class="flex flex-wrap">
+        @for (img of images(); track img.url; let i = $index) {
+          <div
+            class="relative rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition overflow-hidden
+                   basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 min-w-0"
+          >
+            <div class="w-full aspect-[4/3]">
+              <img
+                [src]="img.url"
+                [alt]="img.file.name"
+                loading="lazy"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <app-button
+              type="button"
+              (click)="remove(i)"
+              aria-label="Remove image"
+              class="absolute top-0.5 right-0.5 text-white text-xs px-2 py-0.5 rounded-md"
+            >
+              ×
+            </app-button>
+
+            <div class="text-[10px] sm:text-xs text-slate-600 flex items-center justify-between px-2 sm:px-2.5 py-1.5 border-t">
+              <span [title]="img.file.name" class="truncate max-w-[70%]">{{ truncate(img.file.name, 14) }}</span>
+              <span>{{ prettySize(img.file.size) }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>
