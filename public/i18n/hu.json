@@ -110,8 +110,19 @@
     "maxFiles": "Max fájl",
     "maxSize": "Max méret",
     "error": "Hiba a feltöltés során"
+  },
+  "pageInfo": {
+    "label": {
+      "pageName": "Oldal neve",
+      "description": "Leírás",
+      "private": "Privát oldal",
+      "imageUpload": "Képfeltöltés"
+    },
+    "placeholder": {
+      "examplePageName": "Pl. Rólam oldal",
+      "exampleDescription": "Egy-két mondatos leírás…"
+    }
   }
-
 
 
 }

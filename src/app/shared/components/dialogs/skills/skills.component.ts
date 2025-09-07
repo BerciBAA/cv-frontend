@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Input, output, Output} from '@angular/core';
 import {ButtonComponent} from '../../button/button.component';
 import {InputComponent} from '../../input/input.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -28,8 +28,17 @@ interface Technology {
 })
 export class SkillsComponent {
 
-  @Output() cancel = new EventEmitter<void>();
 
+  private fb = inject(FormBuilder)
+  cancel = output<void>();
+
+  protected editing = false;
+  protected editIndex: number | null = null;
+
+  form = this.fb.group({
+    name: ['', [Validators.max(64)] ],
+    proficiency: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
+  });
 
   technologies: Technology[] = [
     { name: 'Angular', proficiency: 80 },
@@ -48,17 +57,12 @@ export class SkillsComponent {
     { name: 'Spring Boot', proficiency: 70 },
   ];
 
-  form: FormGroup;
-  editing = false;
-  editIndex: number | null = null;
-  isAdmin = true;
-
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-      proficiency: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
-    });
+  onlyNumbers(event: KeyboardEvent) {
+    if (!/^\d$/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab') {
+      event.preventDefault();
+    }
   }
+
 
   onAdd() {
     this.editing = true;
@@ -67,16 +71,7 @@ export class SkillsComponent {
   }
 
   onSave() {
-    if (this.form.valid) {
-      const value = this.form.value as Technology;
-      if (this.editIndex === null) {
-        this.technologies.push(value);
-      } else {
-        this.technologies[this.editIndex] = value;
-      }
-      this.editing = false;
-      this.editIndex = null;
-    }
+    console.log(this.form.getRawValue())
   }
 
   onCancel() {

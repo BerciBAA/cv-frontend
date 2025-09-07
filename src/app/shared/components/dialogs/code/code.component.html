@@ -23,12 +23,12 @@
           formControlName="code"
           label="Kód"
           placeholder="Írd ide a kódot…"
-          class="flex-1 min-h-64 font-mono">
+          class="flex-1 min-h-64">
         </app-textarea>
       </div>
       <div class="flex-1 min-h-1 flex flex-col">
         <label class="block mb-1 text-base text-lg">{{ 'code.label.Preview' | translate }}</label>
-        <pre class="m-0 !bg-white rounded-lg border border-slate-200 bg-slate-50 p-3 overflow-auto h-full "
+        <pre class="w-full !bg-white h-full px-4 py-2 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition"
              [highlight]="form.value.code || ''"
              [language]="form.value.language || ''">
         </pre>

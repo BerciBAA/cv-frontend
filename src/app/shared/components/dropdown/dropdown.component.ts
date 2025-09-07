@@ -46,7 +46,7 @@ export class DropdownComponent implements ControlValueAccessor {
   selectClasses = computed(() => {
     const { bg, bgHover, text, textHover } = this.inputTheme();
     return [
-      'w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-black',
+      'w-full border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition',
       bg, bgHover, text, textHover,
     ].join(' ');
   });

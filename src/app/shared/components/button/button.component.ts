@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, inject, Input, Output, signal} from '@angular/core';
+import {Component, computed, EventEmitter, inject, input, Input, Output, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {ThemeService} from '../../../core/services/theme/theme.service';
 
@@ -15,6 +15,8 @@ import {ThemeService} from '../../../core/services/theme/theme.service';
 export class ButtonComponent {
 
   private themeService = inject(ThemeService);
+
+  type = input('button');
 
   private buttonTheme = this.themeService.componentTheme('button');
 

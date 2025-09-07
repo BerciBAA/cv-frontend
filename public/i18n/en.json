@@ -110,6 +110,18 @@
     "maxFiles": "Max files",
     "maxSize": "Max size",
     "error": "Error during upload"
+  },
+  "pageInfo": {
+    "label": {
+      "pageName": "Page name",
+      "description": "Description",
+      "private": "Private page",
+      "imageUpload": "Image upload"
+    },
+    "placeholder": {
+      "examplePageName": "e.g. About page",
+      "exampleDescription": "One or two sentences…"
+    }
   }
 
 }
