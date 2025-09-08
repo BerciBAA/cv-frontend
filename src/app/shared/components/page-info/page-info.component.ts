@@ -9,6 +9,7 @@ import {CheckboxComponent} from '../checkbox/checkbox.component';
 import {ButtonComponent} from '../button/button.component';
 import {ImageUploaderComponent} from '../image-uploader/image-uploader.component';
 import {TextareaComponent} from '../textarea/textarea.component';
+import {DialogComponent} from '../dialog/dialog.component';
 
 export enum Privacy {
   Private = 'PRIVATE',
@@ -31,7 +32,8 @@ export interface PageMetaFormValue {
     CheckboxComponent,
     ButtonComponent,
     ImageUploaderComponent,
-    TextareaComponent
+    TextareaComponent,
+    DialogComponent
   ],
   templateUrl: './page-info.component.html',
   standalone: true,

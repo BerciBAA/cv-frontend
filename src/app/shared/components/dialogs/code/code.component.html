@@ -1,7 +1,6 @@
-<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full flex flex-col justify-between">
   <form [formGroup]="form"
         (ngSubmit)="onSave()"
-        class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0">
+        class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0  mx-3">
 
     <section class="flex-1 min-h-0 flex flex-col space-y-6">
       <app-input
@@ -28,7 +27,7 @@
       </div>
       <div class="flex-1 min-h-1 flex flex-col">
         <label class="block mb-1 text-base text-lg">{{ 'code.label.Preview' | translate }}</label>
-        <pre class="w-full !bg-white h-full px-4 py-2 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition"
+        <pre class="w-full !bg-white h-full px-4 py-2 border border-slate-300 overflow-auto rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition"
              [highlight]="form.value.code || ''"
              [language]="form.value.language || ''">
         </pre>
@@ -39,4 +38,3 @@
       <app-button type="submit">{{ 'global.button.save' | translate }}</app-button>
     </div>
   </form>
-</section>

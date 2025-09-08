@@ -11,6 +11,7 @@ import {CodeComponent} from '../code/code.component';
 import {ProjectsComponent} from '../projects/projects.component';
 import {State} from './enums/state.enum';
 import {TranslatePipe} from '@ngx-translate/core';
+import {DialogComponent} from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-add-section',
@@ -23,7 +24,8 @@ import {TranslatePipe} from '@ngx-translate/core';
     PdfComponent,
     CodeComponent,
     ProjectsComponent,
-    TranslatePipe
+    TranslatePipe,
+    DialogComponent
   ],
   templateUrl: './add-section.component.html',
   standalone: true,

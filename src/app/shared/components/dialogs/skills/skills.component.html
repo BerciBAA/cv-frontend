@@ -1,5 +1,5 @@
-<section class="backdrop-blur rounded-2xl pb-3 sm:px-5 m-3 space-y-5 h-full flex flex-col justify-between">
 
+<section  class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0  mx-3">
   @if (!editing) {
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-0 overflow-auto overscroll-y-contain px-3 mt-3">
       @for (tech of technologies; track tech.name) {
@@ -10,20 +10,20 @@
 
   @if (editing) {
     <section>
-      <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-5 justify-between m-4">
+      <form [formGroup]="form" (ngSubmit)="onSave()" class="space-y-6 flex flex-col justify-between h-full flex-1 min-h-0">
         <app-input
-          label="Technológia neve:"
-          placeholder="Pl. Angular, Java"
+          [label]="'skill.label.name' | translate"
+          [placeholder]="'skill.placeholder.exampleName' | translate"
           formControlName="name">
         </app-input>
-        <app-input
-          label="Proficiency (%)"
-          type="number"
-          (keydown)="onlyNumbers($event)"
 
+        <app-input
+          type="number"
+          [label]="'skill.label.proficiency' | translate"
+          [placeholder]="'skill.placeholder.exampleProficiency' | translate"
+          (keydown)="onlyNumbers($event)"
           min="0"
           max="100"
-          placeholder="0 - 100"
           formControlName="proficiency">
         </app-input>
       </form>
@@ -33,23 +33,23 @@
   <section>
       <section class="flex items-center justify-center mx-4">
         @if(!editing){
-
-        <app-button (click)="onAdd()" class="w-full">
-          ➕ Hozzáadás
-        </app-button>
+          <app-button (click)="onAdd()" class="w-full">
+            {{ 'skill.button.add' | translate }}
+          </app-button>
         }
       </section>
 
 
     <section class="my-3 flex items-center justify-end gap-3">
       @if (editing) {
-        <app-button (click)="onCancel()">Mégse</app-button>
+        <app-button (click)="onCancel()">{{ 'global.button.cancel' | translate }}</app-button>
+
       }
       @if (!editing) {
-        <app-button (click)="onBack()">Mégse</app-button>
+        <app-button (click)="onBack()">{{ 'global.button.cancel' | translate }}</app-button>
+
       }
-      <app-button type="submit">Mentés</app-button>
+      <app-button type="submit">{{ 'global.button.save' | translate }}</app-button>
     </section>
   </section>
-
 </section>

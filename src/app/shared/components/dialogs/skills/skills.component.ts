@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {NgForOf, NgIf} from '@angular/common';
 import {HasRolesDirective} from 'keycloak-angular';
 import {SkillCardComponent} from '../../skill-card/skill-card.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface Technology {
   name: string;
@@ -20,7 +21,8 @@ interface Technology {
     NgIf,
     HasRolesDirective,
     NgForOf,
-    SkillCardComponent
+    SkillCardComponent,
+    TranslatePipe
   ],
   templateUrl: './skills.component.html',
   standalone: true,
@@ -43,18 +45,7 @@ export class SkillsComponent {
   technologies: Technology[] = [
     { name: 'Angular', proficiency: 80 },
     { name: 'Java', proficiency: 10 },
-    { name: 'SpringSpringSpringSpriSpringSpringSpringSpringng Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
-    { name: 'Spring Boot', proficiency: 70 },
+    { name: 'SpringSpringSpringSpriSpringSpringSpringSpringng Boot', proficiency: 70 }
   ];
 
   onlyNumbers(event: KeyboardEvent) {

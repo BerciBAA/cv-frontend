@@ -1,25 +1,7 @@
-<header
-  class="sticky top-0 z-10 flex items-center justify-between backdrop-blur ml-2 mr-3 mt-4 px-3 sm:px-4"
-  [class]="baseClasses()"
->
-  <h5 class="text-xl sm:text-2xl font-semibold">{{ 'addSectionCard.title.selectComponent' | translate }}</h5>
-
-  <button
-    type="button"
-    (click)="close()"
-    class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2"
-    [class]="closeButtonBaseClasses()"
-  >
-    <svg aria-hidden="true" viewBox="0 0 24 24" class="w-7 h-7 sm:w-8 sm:h-8">
-      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-</header>
-
-<main class="flex-1 min-h-0">
-  <section class="backdrop-blur rounded-2xl p-4 sm:p-6 m-3 h-full flex flex-col">
-    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6 flex-1 min-h-0">
+<app-dialog
+  [titleKey]="'addSectionCard.title.selectComponent'"
+  (close)="close()">
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6 flex-1 min-h-0  mx-3 mb-3">
 
       <div class="flex flex-col">
         <app-input
@@ -62,11 +44,9 @@
       </div>
 
       <div class="mt-auto flex items-center justify-end gap-3">
-        <app-button type="submit" class="px-5 py-2">
+        <app-button type="submit">
           {{ 'global.button.save' | translate }}
         </app-button>
       </div>
     </form>
-  </section>
-</main>
-
+</app-dialog>

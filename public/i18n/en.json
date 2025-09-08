@@ -122,6 +122,27 @@
       "examplePageName": "e.g. About page",
       "exampleDescription": "One or two sentences…"
     }
+  },
+  "skill": {
+    "label": {
+      "name": "Technology name",
+      "proficiency": "Proficiency (%)"
+    },
+    "placeholder": {
+      "exampleName": "E.g., Angular, Java",
+      "exampleProficiency": "0 - 100"
+    },
+    "button": {
+      "add": "Add"
+    }
+  },
+  "addMainSection": {
+    "label":{
+      "sectionName": "Section name"
+    },
+    "placeholder": {
+      "section": "E.g. "
+    }
   }
 
 }

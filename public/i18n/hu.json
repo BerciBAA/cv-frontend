@@ -122,6 +122,27 @@
       "examplePageName": "Pl. Rólam oldal",
       "exampleDescription": "Egy-két mondatos leírás…"
     }
+  },
+  "skill": {
+    "label": {
+      "name": "Technológia neve",
+      "proficiency": "Jártasság (%)"
+    },
+    "placeholder": {
+      "exampleName": "Pl. Angular, Java",
+      "exampleProficiency": "0 - 100"
+    },
+    "button": {
+      "add": "Hozzáadás"
+    }
+  },
+  "addMainSection": {
+    "label":{
+      "sectionName": "Szekció neve"
+    },
+    "placeholder": {
+      "section": "Pl. Rólam "
+    }
   }
 
 

@@ -1,0 +1,21 @@
+<app-dialog
+  [titleKey]="'addSectionCard.title.selectComponent'"
+  (close)="close()">
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6 flex-1 min-h-0 mx-3 mb-3  ">
+
+    <div class="flex flex-col">
+      <app-input
+        class="w-full"
+        [label]="'addMainSection.label.sectionName' | translate"
+        [placeholder]="'addMainSection.placeholder.section' | translate"
+        formControlName="title">
+      </app-input>
+    </div>
+
+    <div class="mt-auto flex items-center justify-end gap-3">
+      <app-button type="submit">
+        {{ 'global.button.save' | translate }}
+      </app-button>
+    </div>
+  </form>
+</app-dialog>

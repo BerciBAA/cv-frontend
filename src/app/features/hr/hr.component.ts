@@ -6,6 +6,7 @@ import {AddSectionComponent} from '../../shared/components/dialogs/add-section/a
 import {DatePickerComponent} from "../../shared/components/date-picker/date-picker.component";
 import {DropdownComponent} from '../../shared/components/dropdown/dropdown.component';
 import {PageInfoComponent} from '../../shared/components/page-info/page-info.component';
+import {AddMainSectionComponent} from '../../shared/components/add-main-section/add-main-section.component';
 
 @Component({
   selector: 'app-hr',
@@ -29,11 +30,16 @@ export class HrComponent {
     });
   }
 
-  private dialog2 = inject(Dialog)
   protected openDialog2(){
     this.dialog.open(PageInfoComponent, {
       width: '70%',
       height: '80%',
+    });
+  }
+  protected openDialog3(){
+    this.dialog.open(AddMainSectionComponent, {
+      width: '70%',
+      height: '27%',
     });
   }
 }
