@@ -1,11 +1,23 @@
-import {Component, EventEmitter, inject, Input, output, Output} from '@angular/core';
-import {ButtonComponent} from '../../button/button.component';
-import {InputComponent} from '../../input/input.component';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
-import {HasRolesDirective} from 'keycloak-angular';
-import {SkillCardComponent} from '../../skill-card/skill-card.component';
-import {TranslatePipe} from '@ngx-translate/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  output,
+  Output,
+} from '@angular/core';
+import { ButtonComponent } from '../../button/button.component';
+import { InputComponent } from '../../input/input.component';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { HasRolesDirective } from 'keycloak-angular';
+import { SkillCardComponent } from '../../skill-card/skill-card.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Technology {
   name: string;
@@ -22,38 +34,45 @@ interface Technology {
     HasRolesDirective,
     NgForOf,
     SkillCardComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './skills.component.html',
   standalone: true,
-  styleUrl: './skills.component.css'
+  styleUrl: './skills.component.css',
 })
 export class SkillsComponent {
-
-
-  private fb = inject(FormBuilder)
+  private fb = inject(FormBuilder);
   cancel = output<void>();
 
   protected editing = false;
   protected editIndex: number | null = null;
 
   form = this.fb.group({
-    name: ['', [Validators.max(64)] ],
-    proficiency: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
+    name: ['', [Validators.max(64)]],
+    proficiency: [
+      0,
+      [Validators.required, Validators.min(0), Validators.max(100)],
+    ],
   });
 
   technologies: Technology[] = [
     { name: 'Angular', proficiency: 80 },
     { name: 'Java', proficiency: 10 },
-    { name: 'SpringSpringSpringSpriSpringSpringSpringSpringng Boot', proficiency: 70 }
+    {
+      name: 'SpringSpringSpringSpriSpringSpringSpringSpringng Boot',
+      proficiency: 70,
+    },
   ];
 
   onlyNumbers(event: KeyboardEvent) {
-    if (!/^\d$/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab') {
+    if (
+      !/^\d$/.test(event.key) &&
+      event.key !== 'Backspace' &&
+      event.key !== 'Tab'
+    ) {
       event.preventDefault();
     }
   }
-
 
   onAdd() {
     this.editing = true;
@@ -62,7 +81,7 @@ export class SkillsComponent {
   }
 
   onSave() {
-    console.log(this.form.getRawValue())
+    console.log(this.form.getRawValue());
   }
 
   onCancel() {
@@ -73,5 +92,4 @@ export class SkillsComponent {
   onBack() {
     this.cancel.emit();
   }
-
 }

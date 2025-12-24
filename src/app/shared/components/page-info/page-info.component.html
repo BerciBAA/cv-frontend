@@ -1,7 +1,7 @@
 <app-dialog
   [titleKey]="'addSectionCard.title.selectComponent'"
   (close)="close()">
-    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6 flex-1 min-h-0  mx-3 mb-3">
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-3 flex-1 min-h-0  mx-3 mb-3">
 
       <div class="flex flex-col">
         <app-input
@@ -27,6 +27,14 @@
           formControlName="isPrivate"
           [label]="'pageInfo.label.private' | translate">
         </app-checkbox>
+      </div>
+
+      <div class="flex flex-col">
+        <app-accses-allow-list
+        formControlName="allowedEmails"
+        [label]="'pageInfo.label.emailAllow' | translate"
+        [placeholder]="'pageInfo.placeholder.emailAllow' | translate">
+        </app-accses-allow-list>
       </div>
 
       <div class="flex flex-col flex-1 min-h-0">

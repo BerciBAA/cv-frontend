@@ -1,4 +1,12 @@
-import {Component, Input, computed, forwardRef, inject, Output, EventEmitter} from '@angular/core';
+import {
+  Component,
+  Input,
+  computed,
+  forwardRef,
+  inject,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../core/services/theme/theme.service';
@@ -9,7 +17,13 @@ import { ThemeService } from '../../../core/services/theme/theme.service';
   imports: [CommonModule],
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.css'],
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => CheckboxComponent), multi: true }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CheckboxComponent),
+      multi: true,
+    },
+  ],
 })
 export class CheckboxComponent implements ControlValueAccessor {
   private theme = inject(ThemeService);
@@ -25,7 +39,9 @@ export class CheckboxComponent implements ControlValueAccessor {
 
   labelClasses = computed(() => {
     const { text, textHover } = this.labelTheme();
-    return ['text-base font-medium transition-colors', text, textHover].join(' ');
+    return ['text-base font-medium transition-colors', text, textHover].join(
+      ' ',
+    );
   });
 
   textClasses = computed(() => {
@@ -35,17 +51,33 @@ export class CheckboxComponent implements ControlValueAccessor {
 
   checkboxClasses = computed(() => {
     const { bg, bgHover, text, textHover, border } = this.inputTheme();
-    return ['h-5 w-5 rounded border transition', bg, bgHover, text, textHover, border].join(' ');
+    return [
+      'h-5 w-5 rounded border transition',
+      bg,
+      bgHover,
+      text,
+      textHover,
+      border,
+    ].join(' ');
   });
 
-
-  protected onChange: (v: any) => void = () => {  };
+  protected onChange: (v: any) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(v: any): void { this.checked = !!v; }
-  registerOnChange(fn: any): void { this.onChange = fn; }
-  registerOnTouched(fn: any): void { this.onTouched = fn; }
-  setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
+  writeValue(v: any): void {
+    this.checked = !!v;
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
-  onBlur(): void { this.onTouched(); }
+  onBlur(): void {
+    this.onTouched();
+  }
 }

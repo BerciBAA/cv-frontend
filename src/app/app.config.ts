@@ -1,19 +1,21 @@
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection
+  provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideTranslateService} from '@ngx-translate/core';
-import {provideTranslateHttpLoader} from '@ngx-translate/http-loader';
-import {provideHttpClient} from '@angular/common/http';
-import {provideKeycloakAngular} from './keycloak.config';
-import {provideHighlightJsConfig} from 'ngx-highlight-js';
-import {provideHighlightOptions} from 'ngx-highlightjs';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideHttpClient } from '@angular/common/http';
+import { provideKeycloakAngular } from './keycloak.config';
+import { provideHighlightOptions } from 'ngx-highlightjs';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  MAT_DATE_LOCALE,
+  provideNativeDateAdapter,
+} from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,10 +27,10 @@ export const appConfig: ApplicationConfig = {
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/i18n/',
-        suffix: '.json'
+        suffix: '.json',
       }),
       fallbackLang: 'hu',
-      lang: 'hu'
+      lang: 'hu',
     }),
     provideHighlightOptions({
       coreLibraryLoader: () => import('highlight.js/lib/core'),
@@ -37,12 +39,11 @@ export const appConfig: ApplicationConfig = {
         typescript: () => import('highlight.js/lib/languages/typescript'),
         css: () => import('highlight.js/lib/languages/css'),
         java: () => import('highlight.js/lib/languages/java'),
-        xml: () => import('highlight.js/lib/languages/xml')
+        xml: () => import('highlight.js/lib/languages/xml'),
       },
-
     }),
     provideAnimations(),
     provideNativeDateAdapter(),
-    { provide: MAT_DATE_LOCALE, useValue: 'hu-HU' }
-  ]
+    { provide: MAT_DATE_LOCALE, useValue: 'hu-HU' },
+  ],
 };

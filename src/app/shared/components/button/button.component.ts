@@ -1,19 +1,24 @@
-import {Component, computed, EventEmitter, inject, input, Input, Output, signal} from '@angular/core';
-import {NgClass} from '@angular/common';
-import {ThemeService} from '../../../core/services/theme/theme.service';
-
+import {
+  Component,
+  computed,
+  EventEmitter,
+  inject,
+  input,
+  Input,
+  Output,
+  signal,
+} from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ThemeService } from '../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-button',
-  imports: [
-    NgClass
-  ],
+  imports: [NgClass],
   templateUrl: './button.component.html',
   standalone: true,
-  styleUrl: './button.component.css'
+  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
-
   private themeService = inject(ThemeService);
 
   type = input('button');
@@ -33,22 +38,13 @@ export class ButtonComponent {
   baseClasses = computed(() => {
     const { bg, bgHover, text, textHover, border } = this.buttonTheme();
 
-    const css : string = this.cssSignal();
+    const css: string = this.cssSignal();
     if (css) {
-      return css
-        .split(' ');
+      return css.split(' ');
     }
 
-    const extraClass: string[] = this.classSignal().split(' ')
+    const extraClass: string[] = this.classSignal().split(' ');
 
-    return [
-      bg,
-      bgHover,
-      text,
-      textHover,
-      border,
-      ...extraClass
-    ];
+    return [bg, bgHover, text, textHover, border, ...extraClass];
   });
-
 }

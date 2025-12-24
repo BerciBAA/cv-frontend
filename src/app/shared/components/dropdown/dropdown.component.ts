@@ -1,8 +1,19 @@
-import {Component, Input, computed, inject, model, Signal, signal, input, InputSignal, forwardRef} from '@angular/core';
-import {NgClass, NgFor, NgIf} from '@angular/common';
+import {
+  Component,
+  Input,
+  computed,
+  inject,
+  model,
+  Signal,
+  signal,
+  input,
+  InputSignal,
+  forwardRef,
+} from '@angular/core';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { ThemeService } from '../../../core/services/theme/theme.service';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface DropdownOption<T = string> {
   label: string;
@@ -29,7 +40,9 @@ export class DropdownComponent implements ControlValueAccessor {
 
   @Input() label = '';
   @Input() placeholder = '';
-  options: InputSignal<DropdownOption<string>[]> = input<DropdownOption<string>[]>([]);
+  options: InputSignal<DropdownOption<string>[]> = input<
+    DropdownOption<string>[]
+  >([]);
   @Input() id = 'custom-dropdown';
 
   value: string = '';
@@ -40,14 +53,21 @@ export class DropdownComponent implements ControlValueAccessor {
 
   labelClasses = computed(() => {
     const { text, textHover } = this.labelTheme();
-    return ['block mb-1 text-base font-medium transition-colors', text, textHover].join(' ');
+    return [
+      'block mb-1 text-base font-medium transition-colors',
+      text,
+      textHover,
+    ].join(' ');
   });
 
   selectClasses = computed(() => {
     const { bg, bgHover, text, textHover } = this.inputTheme();
     return [
       'w-full border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-black transition',
-      bg, bgHover, text, textHover,
+      bg,
+      bgHover,
+      text,
+      textHover,
     ].join(' ');
   });
 

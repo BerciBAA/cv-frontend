@@ -1,22 +1,27 @@
-import {Component, computed, inject, output} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ButtonComponent} from '../../button/button.component';
-import {NgClass} from '@angular/common';
-import {QuillEditorComponent} from 'ngx-quill';
-import {ThemeService} from '../../../../core/services/theme/theme.service';
-import {InputComponent} from '../../input/input.component';
-import {TranslatePipe} from '@ngx-translate/core';
-
+import { Component, computed, inject, output } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonComponent } from '../../button/button.component';
+import { NgClass } from '@angular/common';
+import { QuillEditorComponent } from 'ngx-quill';
+import { ThemeService } from '../../../../core/services/theme/theme.service';
+import { InputComponent } from '../../input/input.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-html-editor',
   standalone: true,
-  imports: [ReactiveFormsModule, ButtonComponent, QuillEditorComponent, InputComponent, NgClass, TranslatePipe,],
+  imports: [
+    ReactiveFormsModule,
+    ButtonComponent,
+    QuillEditorComponent,
+    InputComponent,
+    NgClass,
+    TranslatePipe,
+  ],
   templateUrl: './html-editor.component.html',
   styleUrl: './html-editor.component.css',
 })
 export class HtmlEditorComponent {
-
   private themeService = inject(ThemeService);
   private fb = inject(FormBuilder);
   private editorTheme = this.themeService.componentTheme('editor');
@@ -29,7 +34,7 @@ export class HtmlEditorComponent {
   });
 
   onSave() {
-    console.log(this.form.getRawValue())
+    console.log(this.form.getRawValue());
   }
 
   onCancel() {
@@ -37,14 +42,8 @@ export class HtmlEditorComponent {
   }
 
   baseClasses = computed(() => {
-    const {bg, bgHover, text, textHover, border} = this.editorTheme();
-    return [
-      bg,
-      bgHover,
-      text,
-      textHover,
-      border
-    ];
+    const { bg, bgHover, text, textHover, border } = this.editorTheme();
+    return [bg, bgHover, text, textHover, border];
   });
 
   modules = {
@@ -53,20 +52,20 @@ export class HtmlEditorComponent {
       ['blockquote', 'code-block'],
       ['link', 'image', 'video', 'formula'],
 
-      [{'header': 1}, {'header': 2}],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'list': 'check'}],
-      [{'script': 'sub'}, {'script': 'super'}],
-      [{'indent': '-1'}, {'indent': '+1'}],
-      [{'direction': 'rtl'}],
+      [{ header: 1 }, { header: 2 }],
+      [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }],
+      [{ script: 'sub' }, { script: 'super' }],
+      [{ indent: '-1' }, { indent: '+1' }],
+      [{ direction: 'rtl' }],
 
-      [{'size': ['small', false, 'large', 'huge']}],
-      [{'header': [1, 2, 3, 4, 5, 6, false]}],
+      [{ size: ['small', false, 'large', 'huge'] }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-      [{'color': []}, {'background': []}],
-      [{'font': []}],
-      [{'align': []}],
+      [{ color: [] }, { background: [] }],
+      [{ font: [] }],
+      [{ align: [] }],
 
-      ['clean']
+      ['clean'],
     ],
     blotFormatter: {},
   };

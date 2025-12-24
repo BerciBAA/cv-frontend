@@ -116,11 +116,13 @@
       "pageName": "Oldal neve",
       "description": "Leírás",
       "private": "Privát oldal",
-      "imageUpload": "Képfeltöltés"
+      "imageUpload": "Képfeltöltés",
+      "emailAllow": "Engedélyezett emailek"
     },
     "placeholder": {
       "examplePageName": "Pl. Rólam oldal",
-      "exampleDescription": "Egy-két mondatos leírás…"
+      "exampleDescription": "Egy-két mondatos leírás…",
+      "emailAllow": "Pl. pelda@pelda.hu"
     }
   },
   "skill": {
@@ -143,6 +145,9 @@
     "placeholder": {
       "section": "Pl. Rólam "
     }
+  },
+  "accessAllowList": {
+    "button": "Hozzáadás"
   }
 
 

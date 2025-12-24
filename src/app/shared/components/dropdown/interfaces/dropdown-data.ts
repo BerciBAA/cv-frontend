@@ -1,4 +1,4 @@
-import {DropdownItem} from './dropdown-items';
+import { DropdownItem } from './dropdown-items';
 
 export interface DropdownData {
   title: DropdownItem;

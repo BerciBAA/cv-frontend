@@ -116,11 +116,13 @@
       "pageName": "Page name",
       "description": "Description",
       "private": "Private page",
-      "imageUpload": "Image upload"
+      "imageUpload": "Image upload",
+      "emailAllow": "Approved emails"
     },
     "placeholder": {
       "examplePageName": "e.g. About page",
-      "exampleDescription": "One or two sentences…"
+      "exampleDescription": "One or two sentences…",
+      "emailAllow": "E.g. example@example.hu"
     }
   },
   "skill": {
@@ -141,8 +143,11 @@
       "sectionName": "Section name"
     },
     "placeholder": {
-      "section": "E.g. "
+      "section": "E.g. Me"
     }
+  },
+  "accessAllowList": {
+    "button": "Add"
   }
 
 }

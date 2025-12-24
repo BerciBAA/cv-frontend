@@ -1,12 +1,16 @@
-import {Component, inject, output} from '@angular/core';
-import {DecimalPipe} from '@angular/common';
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {TextareaComponent} from '../../textarea/textarea.component';
-import {InputComponent} from '../../input/input.component';
-import {ButtonComponent} from '../../button/button.component';
-import {TranslatePipe} from '@ngx-translate/core';
-import {ImageUploaderComponent} from '../../image-uploader/image-uploader.component';
-
+import { Component, inject, output } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { TextareaComponent } from '../../textarea/textarea.component';
+import { InputComponent } from '../../input/input.component';
+import { ButtonComponent } from '../../button/button.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { ImageUploaderComponent } from '../../image-uploader/image-uploader.component';
 
 @Component({
   selector: 'app-projects',
@@ -18,15 +22,14 @@ import {ImageUploaderComponent} from '../../image-uploader/image-uploader.compon
     DecimalPipe,
     FormsModule,
     TranslatePipe,
-    ImageUploaderComponent
+    ImageUploaderComponent,
   ],
   templateUrl: './projects.component.html',
   standalone: true,
-  styleUrl: './projects.component.css'
+  styleUrl: './projects.component.css',
 })
 export class ProjectsComponent {
-
-  private fb = inject(FormBuilder)
+  private fb = inject(FormBuilder);
 
   form = this.fb.group({
     title: ['', [Validators.maxLength(64)]],
@@ -43,7 +46,7 @@ export class ProjectsComponent {
   }
 
   onSave() {
-    console.log(this.form.getRawValue())
+    console.log(this.form.getRawValue());
   }
 
   onCancel() {

@@ -5,5 +5,5 @@ export enum State {
   SKILLS,
   CAREER,
   PROJECTS,
-  CODE
+  CODE,
 }

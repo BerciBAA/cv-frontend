@@ -1,7 +1,14 @@
-import {Component, computed, forwardRef, inject, Input, model} from '@angular/core';
-import {ThemeService} from '../../../core/services/theme/theme.service';
-import {InputComponent} from '../input/input.component';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {
+  Component,
+  computed,
+  forwardRef,
+  inject,
+  Input,
+  model,
+} from '@angular/core';
+import { ThemeService } from '../../../core/services/theme/theme.service';
+import { InputComponent } from '../input/input.component';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-textarea',
@@ -14,12 +21,12 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TextareaComponent),
       multi: true,
-    }
-  ]
+    },
+  ],
 })
-export class TextareaComponent  implements ControlValueAccessor{
+export class TextareaComponent implements ControlValueAccessor {
   private themeService = inject(ThemeService);
-  value = "";
+  value = '';
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() type: string = 'input';
@@ -34,7 +41,7 @@ export class TextareaComponent  implements ControlValueAccessor{
     return [
       'block mb-1 text-base font-medium transition-colors',
       text,
-      textHover
+      textHover,
     ].join(' ');
   });
 
@@ -45,18 +52,28 @@ export class TextareaComponent  implements ControlValueAccessor{
       bg,
       bgHover,
       text,
-      textHover
+      textHover,
     ].join(' ');
   });
-
 
   private onChange: (v: any) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(v: any): void { this.value = v ?? ''; }
-  registerOnChange(fn: any): void { this.onChange = fn; }
-  registerOnTouched(fn: any): void { this.onTouched = fn; }
-  setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
+  writeValue(v: any): void {
+    this.value = v ?? '';
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
-  onInput(v: string): void { this.value = v; this.onChange(v); }
+  onInput(v: string): void {
+    this.value = v;
+    this.onChange(v);
+  }
 }

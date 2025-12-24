@@ -8,9 +8,8 @@ describe('HtmlEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HtmlEditorComponent]
-    })
-    .compileComponents();
+      imports: [HtmlEditorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HtmlEditorComponent);
     component = fixture.componentInstance;

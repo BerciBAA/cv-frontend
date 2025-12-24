@@ -1,11 +1,28 @@
-import {Component, computed, EventEmitter, inject, input, InputSignal, output, Output} from '@angular/core';
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ButtonComponent} from '../../button/button.component';
-import {TextareaComponent} from '../../textarea/textarea.component';
-import {InputComponent} from '../../input/input.component';
-import {Highlight} from 'ngx-highlightjs';
-import {DropdownComponent, DropdownOption} from '../../dropdown/dropdown.component';
-import {TranslatePipe} from '@ngx-translate/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  inject,
+  input,
+  InputSignal,
+  output,
+  Output,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { ButtonComponent } from '../../button/button.component';
+import { TextareaComponent } from '../../textarea/textarea.component';
+import { InputComponent } from '../../input/input.component';
+import { Highlight } from 'ngx-highlightjs';
+import {
+  DropdownComponent,
+  DropdownOption,
+} from '../../dropdown/dropdown.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-code',
@@ -17,14 +34,13 @@ import {TranslatePipe} from '@ngx-translate/core';
     Highlight,
     DropdownComponent,
     TranslatePipe,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './code.component.html',
   standalone: true,
-  styleUrl: './code.component.css'
+  styleUrl: './code.component.css',
 })
 export class CodeComponent {
-
   private fb = inject(FormBuilder);
 
   cancel = output<void>();
@@ -32,11 +48,11 @@ export class CodeComponent {
   protected code: string = '';
 
   optionsForDropdown = computed<DropdownOption<string>[]>(() =>
-    (this.languages() ?? []).map(l => ({
+    (this.languages() ?? []).map((l) => ({
       label: l,
       value: l,
       disabled: false,
-    }))
+    })),
   );
 
   form = this.fb.group({

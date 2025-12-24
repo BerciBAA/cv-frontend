@@ -39,6 +39,7 @@
     "highlight.js": "^11.11.1",
     "keycloak-angular": "^20.0.0",
     "keycloak-js": "^26.2.0",
+    "lint": "^0.8.19",
     "ngx-highlight-js": "^20.0.0",
     "ngx-highlightjs": "^14.0.1",
     "ngx-quill": "^28.0.1",
@@ -64,6 +65,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.7.4",
     "typescript": "~5.8.2"
   }
 }
